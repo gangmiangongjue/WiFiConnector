@@ -63,11 +63,11 @@ public class WifiConnector {
         if (mWifiManager != null && !mWifiManager.isWifiEnabled()) {
             //WiFi未打开，开启wifi
             Log.d(TAG, "wifi not enable try open:");
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                Toast.makeText(mContext, "请先打开wifi开关,再启动本应用", Toast.LENGTH_SHORT).show();
-            } else {
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+//                Toast.makeText(mContext, "请先打开wifi开关,再启动本应用", Toast.LENGTH_SHORT).show();
+//            } else {
                 mWifiManager.setWifiEnabled(true);
-            }
+//            }
 
             return true;
         }
@@ -217,7 +217,7 @@ public class WifiConnector {
                     ScanResult target = getTargetResult(scanResultList, "jiigan-guest");
 
                     if (target != null) {
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                        if (false && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                             boolean direct = true;
                             if (!direct) {
                                 /*以下的内容是可以做出推荐，让系统推荐给用户*/
@@ -260,6 +260,7 @@ public class WifiConnector {
                                     public void onAvailable(Network network) {
                                         //Use this network object to Send request.
                                         //eg - Using OkHttp library to create a service request
+                                        cm.bindProcessToNetwork(network);
                                         Log.d(TAG, "ConnectivityManager requestNetwork onAvailable: ");
                                         //最简单的Retrofit对象
 
@@ -271,11 +272,11 @@ public class WifiConnector {
 
                                             @Override
                                             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                                                Log.e(TAG, "成功：" + response.body().source());
+                                                Log.e(TAG, "success：" + response.body().source());
                                             }
                                             @Override
                                             public void onFailure(Call<ResponseBody> call, Throwable t) {
-                                                Log.e(TAG, "失败：" + t.toString());
+                                                Log.e(TAG, "failed：" + t.toString());
                                             }
 
                                         });
@@ -305,6 +306,7 @@ public class WifiConnector {
                             }
 
                         } else {
+                            Log.d(TAG, "onReceive connect with wifiConfiguration: ");
                             WifiConfiguration config = createWifiConfig(target.SSID, "jiiganguest", getWifiCipher(target.capabilities));
                             addNetWorkAndConnect(config);
                         }
