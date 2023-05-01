@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 
 public class MainActivity extends Activity {
-    private final static String TAG = "MainActivity";
+    private final static String TAG = "WifiConnector_sxf";
     private WifiConnector mWifiConnector;
     private String[] permissions = new String[]{Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.CHANGE_WIFI_STATE,
             Manifest.permission.ACCESS_WIFI_STATE,Manifest.permission.ACCESS_NETWORK_STATE,Manifest.permission.CHANGE_NETWORK_STATE,

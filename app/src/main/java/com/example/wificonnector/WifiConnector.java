@@ -34,7 +34,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Url;
 
 public class WifiConnector {
-    private final static String TAG = "WifiConnector";
+    private final static String TAG = "WifiConnector_sxf";
 
     private WifiReceiver mWifiReceiver;
     private Context mContext;
