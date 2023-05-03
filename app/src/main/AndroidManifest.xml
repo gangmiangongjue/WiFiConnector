@@ -17,7 +17,9 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/WifiConnector">
+        android:theme="@style/WifiConnector"
+        android:usesCleartextTraffic="true"
+        >
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -26,6 +28,12 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ConnectWifiActivity"
+            android:launchMode="singleTop"
+            android:exported="true">
         </activity>
     </application>
 

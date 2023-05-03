@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ConnectWifiActivity">
+
+    <com.example.wificonnector.BreatheView
+        android:id="@+id/breathe"
+        app:BreatheViewInsideColor="@color/black"
+        android:layout_gravity="center"
+        android:layout_height="250dp"
+        android:layout_width="250dp"
+        app:insideViewWidth = "200dp"
+        app:insideViewHeight = "200dp"
+        app:lightDiffusionWidth = "20dp"
+        app:BreatheViewText="钟121213\n中\n仲"
+        app:BreatheViewTextColor="@color/white"
+        app:BreatheViewTextSize="15sp"
+        app:BreatheViewIsLight="true"
+        />
+</FrameLayout>
